@@ -1,6 +1,11 @@
 /* << controllers/cats.js >>
-  CATS CONTROLLER:
-  responsible for supplying the appropriate routes for all cat based activity
+  CATS CONTROLLER: HERE THERE BE ROUTES
+
+  When we include the cat router in server.js, it will be via the command
+      server.use('/cats', catRouter);
+  Every route below will be prefaced with '/cats', so if we define
+      router.get('/:id', function (res, req) {});
+  it will really hit '/cats/:id'
 */
 
 var express = require('express'),
