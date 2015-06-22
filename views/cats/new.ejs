@@ -1,0 +1,10 @@
+<form action="/cats" method="post">
+  <h2>Let's make a new cat!</h2>
+  <input type='text' name='cat[name]' placeholder="name"><br/>
+  <input type='text' name='cat[color]' placeholder="color"><br/>
+  <h3>Cat age: <span id="cat-age"></span></h3>
+  <input type='range' name='cat[age]' min="0" max="30" step="1"><br/>
+  <input type='submit'>
+</form>
+
+<script src="/scripts/catForm.js"></script>

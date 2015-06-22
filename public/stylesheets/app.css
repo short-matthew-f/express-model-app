@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  font: inherit;
+}
+
+html {
+  font-size: 22px;
+  font-family: monospace;
+}
+
+body {
+  background: steelblue;
+  color: white;
+}
