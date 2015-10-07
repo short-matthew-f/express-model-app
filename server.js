@@ -14,7 +14,7 @@ server.set('view engine', 'ejs');
 server.use(express.static('./public'));
 
 // use server logger for requests, but require short descriptions
-server.use(morgan('short'));
+server.use(morgan('dev'));
 
 // let forms submit into req.body with nice nested properties
 server.use(bodyParser.urlencoded({ extended: true }));
@@ -29,10 +29,14 @@ server.use(expressLayouts);
 // import model based controllers
 var catController = require('./controllers/cats.js');
 server.use('/cats', catController);
+/* server.use('/cats', catController) tells us to use *
+ * the router for any route that starts wit `/cats`   */
 
 // write server specific controllers
 server.use('/', function (req, res) {
   res.render('welcome');
 });
 
-server.listen(3000);
+server.listen(3000, function () {
+  console.log("I'm a callback!");
+});
