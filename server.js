@@ -4,7 +4,10 @@ var express         = require('express'),
     expressLayouts  = require('express-ejs-layouts'),
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
-    morgan          = require('morgan');
+    morgan          = require('morgan'),
+    mongoose        = require('mongoose'),
+    MONGOURI        = process.env.mongouri || "localhost://mongodb/dbname",
+    PORT            = process.end.PORT || 3000;
 
 // set views folder and change engine to ejs
 server.set('views', './views');
@@ -37,6 +40,8 @@ server.use('/', function (req, res) {
   res.render('welcome');
 });
 
-server.listen(3000, function () {
-  console.log("I'm a callback!");
+// start up the database + application
+mongoose.connect(MONGOURI);
+server.listen(PORT, function () {
+  console.log("I'm up on port", PORT);
 });
