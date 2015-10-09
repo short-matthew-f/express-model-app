@@ -6,7 +6,8 @@ var express         = require('express'),
     methodOverride  = require('method-override'),
     morgan          = require('morgan'),
     mongoose        = require('mongoose'),
-    MONGOURI        = process.env.mongouri || "localhost://mongodb/dbname",
+    MONGOURI        = process.env.MONGO_URI || "mongodb://localhost:27017",
+    DBNAME          = "my-db-name",
     PORT            = process.end.PORT || 3000;
 
 // set views folder and change engine to ejs
@@ -41,7 +42,7 @@ server.use('/', function (req, res) {
 });
 
 // start up the database + application
-mongoose.connect(MONGOURI);
+mongoose.connect(MONGOURI + "/" + DBNAME);
 server.listen(PORT, function () {
   console.log("I'm up on port", PORT);
 });
