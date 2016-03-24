@@ -33,8 +33,8 @@ server.use(expressLayouts);
 // import model based controllers
 var catController = require('./controllers/cats.js');
 server.use('/cats', catController);
-/* server.use('/cats', catController) tells us to use *
- * the router for any route that starts wit `/cats`   */
+// server.use('/cats', catController) tells us to use
+// the router for any route that starts with `/cats`
 
 // write server specific controllers
 server.use('/', function (req, res) {
